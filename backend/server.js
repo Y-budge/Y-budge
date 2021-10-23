@@ -34,7 +34,7 @@ app.post('/twitter', (req, res) => {
   })
   
   var params = {screen_name: "litecoin_report"};
-  client.post('statuses/update', {status: 'Calhacktest6'},  function(error, tweet, response) {
+  client.post('statuses/update', {status: 'Calhacktest8'},  function(error, tweet, response) {
     if(error) throw error;
     console.log(tweet);  // Tweet body.
     console.log(response);  // Raw response object.
