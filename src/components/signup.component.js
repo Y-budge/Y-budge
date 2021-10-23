@@ -22,7 +22,7 @@ export default class Signup extends Component {
 
   onChangePass(e) {
     this.setState({
-      password: e.target.value
+    password: e.target.value
     });
   }
 
