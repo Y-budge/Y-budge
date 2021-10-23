@@ -13,7 +13,7 @@ class Twitter extends Component {
     onSubmit() {
        
 
-        axios.post('https://y-budge1.herokuapp.com/twitter') //'http://localhost:5000/twitter')
+        axios.post('https://y-budge2.herokuapp.com/twitter') //'http://localhost:5000/twitter')
         .then(res => console.log(res.data))
 
 
