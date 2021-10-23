@@ -6,13 +6,18 @@ import Navbar from './components/navbar.component';
 
 function App() {
   return (
-    <div className="container">
-      <Router>
-        <Navbar>
-          
-        </Navbar>
-      </Router>
-    </div>
+    <Router>
+      <Navbar>
+        
+      </Navbar>
+      <div className="container-fluid hero-container">
+        <div className="hero-image">
+          <div className="hero-text">
+            <h1>hi</h1>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 
