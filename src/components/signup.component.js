@@ -32,8 +32,17 @@ export default class Signup extends Component {
       username: this.state.username,
       password: this.state.password
     }
+
     console.log(account);
-    // axios.post('http://localhost:3000/login/auth');
+    axios.post('http://localhost:5000/signup/add', {
+      account
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
     // window.location = '/';
   }
 
