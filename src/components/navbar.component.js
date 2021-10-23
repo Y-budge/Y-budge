@@ -1,38 +1,27 @@
-import React, { Component} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
 
-export default class Navbar extends Component {
-    render() {
-        return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <div class="d-flex flex-grow-1">
-                        <a class="navbar-brand d-none d-lg-inline-block" href="#"> Y Budge </a>
-                        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="#">
-                            {/* <img src="https://via.placeholder.com/40?text=LOGO" alt="logo"> */}
-                        </a>
-                        <div class="w-100 text-right">
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
-                        <ul class="navbar-nav ms-auto flex-nowrap">
-                            {/*class: nav-active*/}
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-2 menu-item">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-2 menu-item">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link m-2 menu-item">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        );
-    }
+const TopNav = props => {
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
+
+  return (
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/#">
+        {/* <img src={Logo} alt="Logo" width="36" height="36" className="vertical-align-middle" /> */}
+        <span className="">Y Budge</span>
+      </a>
+      <button class="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
+        <a className="nav-link" href="/contact">About</a>
+        <a className="nav-link" href="/login">Contact</a>
+        <a className="nav-link" href="/login">Login</a>
+      </div>
+    </nav>
+  );
 }
+
+export default TopNav;

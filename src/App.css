@@ -25,14 +25,14 @@
 }
 
 .hero-text h1 {
-  font-size: 150px;
+  /* font-size: 150px; */
+  font-size: 800%;
 }
 
 .hero-text p {
   font-size: 25px;
 }
 
-body {
-  height: 100%;
-  margin: 0;
+.nav-link {
+  color: black !important;
 }
