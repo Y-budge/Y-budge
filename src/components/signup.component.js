@@ -35,7 +35,8 @@ export default class Signup extends Component {
 
     console.log(account);
     axios.post('http://localhost:5000/signup/add', {
-      account
+      username: account.username,
+      password: account.password
     })
     .then(function (response) {
       console.log(response);
