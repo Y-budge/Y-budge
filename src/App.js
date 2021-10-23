@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route} from 'react-router-dom';
 
 import Navbar from './components/navbar.component';
 import Landing from './components/landing.component';
+import Signup from './components/signup.component';
 import Login from './components/login.component';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
     <Router>
       <Navbar />
       <Route path="/" exact component={Landing} />
+      <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
     </Router>
   );

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class Login extends Component {
+export default class Signup extends Component {
   constructor(props) {
     super(props);
 
@@ -62,7 +62,7 @@ export default class Login extends Component {
                       onChange={this.onChangeUsername}
                     />
                   </div>
-                  <button type="submit" class="btn btn-outline-light" >Login</button>
+                  <button type="submit" class="btn btn-outline-light" >Signup</button>
                 </form>
             </div>
             </div>
