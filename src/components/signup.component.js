@@ -22,8 +22,8 @@ export default class Signup extends Component {
 
   onChangePass(e) {
     this.setState({
-      password: e.taget.value
-    })
+      password: e.target.value
+    });
   }
 
   onSubmit(e) {
@@ -55,7 +55,7 @@ export default class Signup extends Component {
                 <form onSubmit={this.onSubmit}>
                   <div className="form-group">
                     <label>Username: </label>
-                    <input ref="userInput"
+                    <input
                       required
                       type="text"
                       className="form-control"
@@ -64,11 +64,11 @@ export default class Signup extends Component {
                   </div>
                   <div className="form-group">
                     <label>Password: </label>
-                    <input ref="userInput"
+                    <input
                       required
-                      type="password"
+                      type="text"
                       className="form-control"
-                      onChange={this.onChangeUsername}
+                      onChange={this.onChangePass}
                     />
                   </div>
                   <button type="submit" class="btn btn-outline-light" >Signup</button>
