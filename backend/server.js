@@ -20,8 +20,10 @@ connection.once('open', () => {
 })
 
 const plaidRouter = require('./routes/plaid');
+const logRouter = require('./routes/log')
 
 app.use('/plaid', plaidRouter);
+app.use('/signup', logRouter);
 
 app.post('/twitter', (req, res) => {
   var client = new Twitter({
