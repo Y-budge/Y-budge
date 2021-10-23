@@ -67,7 +67,7 @@ export default class Signup extends Component {
                     <label>Password: </label>
                     <input
                       required
-                      type="text"
+                      type="password"
                       className="form-control"
                       onChange={this.onChangePass}
                     />
