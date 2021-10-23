@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
+import { Link } from 'react-router-dom';
 
 const TopNav = props => {
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -7,18 +8,18 @@ const TopNav = props => {
 
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/#">
+      <Link to="/" className="navbar-brand">
         {/* <img src={Logo} alt="Logo" width="36" height="36" className="vertical-align-middle" /> */}
         <span className="">Y Budge</span>
-      </a>
+      </Link>
       <button class="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
-        <a className="nav-link" href="/contact">About</a>
-        <a className="nav-link" href="/login">Contact</a>
-        <a className="nav-link" href="/login">Login</a>
+        <Link to="#" className="nav-link">About</Link>
+        <Link to="#" className="nav-link">Contact</Link>
+        <Link to="/login" className="nav-link" to="/login">Login</Link>
+        <Link to="/signup" className="nav-link" to="/signup">Signup</Link>
       </div>
     </nav>
   );

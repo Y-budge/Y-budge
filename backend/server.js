@@ -19,8 +19,10 @@ connection.once('open', () => {
 })
 
 const plaidRouter = require('./routes/plaid');
+const logRouter = require('./routes/log')
 
 app.use('/plaid', plaidRouter);
+app.use('/signup', logRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
