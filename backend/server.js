@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+var Twitter = require('twitter');
 
 require('dotenv').config();
 
@@ -21,6 +22,23 @@ connection.once('open', () => {
 const plaidRouter = require('./routes/plaid');
 
 app.use('/plaid', plaidRouter);
+
+app.post('/twitter', (req, res) => {
+  var client = new Twitter({
+    consumer_key: '3sUMQK8IsHmeK24zgb968UTOf',
+    consumer_secret: 'doJKN1SzcT7jjRRxQFHVmNfLzcqSCempx5rblakdqoJJiEiLbF',
+    access_token_key: '975552453121896448-ZNEZ3Cv0xmYggMwZB5pfLOt6lWUOfNB',
+    access_token_secret: 'sNztcupQlVhPyIakBqhCeI7xptJUS3onXLg4l4b05zP2K',
+  })
+  
+  var params = {screen_name: "litecoin_report"};
+  client.post('statuses/update', {status: 'Calhacktest3'},  function(error, tweet, response) {
+    if(error) throw error;
+    console.log(tweet);  // Tweet body.
+    console.log(response);  // Raw response object.
+  })
+
+});
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
