@@ -66,19 +66,19 @@ app.get('/auth/twitter',
   passport.authenticate('twitter', {scope: ['profile']}));
 
 app.get('/auth/twitter/callback',
-  passport.authenticate('twitter', { failureRedirect: 'https://ybudge.herokuapp.com:3000/login'}),
+  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/login'}),
   function(req, res) {
     console.log('hi');
-    res.redirect('https://ybudge.herokuapp.com:3000/');
+    res.redirect('http://localhost:3000/');
 });
 
 app.get('/logout', (req, res) => {
   req.logout()
-  res.redirect('https://ybudge.herokuapp.com:3000/')
+  res.redirect('http://localhost:3000/')
 })
 
 app.get('/login/:id', function(req, res) {
-    res.redirect('https://ybudge.herokuapp.com:3000/');
+    res.redirect('http://localhost:3000/');
 });
 
 app.listen(port, () => {
