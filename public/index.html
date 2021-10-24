@@ -16,6 +16,7 @@
       // Part 2. Initialize & configure the client library
       document.addEventListener("DOMContentLoaded", function() {
         var tellerConnect = TellerConnect.setup({
+          environment: "sandbox",
           applicationId: "app_npbua4vlo4jp6k3e8g000",
           onInit: function() {
             console.log("Teller Connect has initialized");
@@ -23,6 +24,8 @@
           // Part 3. Handle a successful enrollment's accessToken
           onSuccess: function(enrollment) {
             console.log("User enrolled successfully", enrollment.accessToken);
+            console.log("user id: ", enrollment.user.id);
+            
           },
           onExit: function() {
             console.log("User closed Teller Connect");
