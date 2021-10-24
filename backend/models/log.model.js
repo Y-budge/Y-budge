@@ -3,14 +3,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const logSchema = new Schema({
+  twitterId: {
+    type: String,
+    required: false,
+  },
+  displayName: {
+    type: String,
+    required: false,
+  },
   username: {
     type: String,
-    required: true,
-    unique: true,
+    required: false,
   },
-  password: {
-    type: String,
-    required: true,
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
   userId: {type: String, required: false},
   plaidAccessToken: {type: String, required:false},

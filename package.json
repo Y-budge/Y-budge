@@ -12,6 +12,7 @@
     "dotenv": "^10.0.0",
     "ejs": "2.5.x",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "jquery": "^3.6.0",
     "moment": "2.22.x",
     "mongoose": "^6.0.12",

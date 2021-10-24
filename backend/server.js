@@ -1,9 +1,22 @@
 const express = require('express');
 const cors = require('cors');
+const passport = require('passport');
+const session = require('express-session');
 const mongoose = require('mongoose');
+const axios = require('axios');
 var Twitter = require('twitter');
 
 require('dotenv').config();
+require('./config/passport')(passport);
+
+//connecting db
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri);
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log("MongoDB database connection established successfully");
+});
+
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -11,19 +24,26 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri);
-
-const connection = mongoose.connection;
-connection.once('open', () => {
-  console.log("MongoDB database connection established successfully");
-})
 
 const plaidRouter = require('./routes/plaid');
-const logRouter = require('./routes/log')
+const logRouter = require('./routes/log');
+const testRouter = require('./routes/test');
+
+app.use(
+  session({
+    secret: 'the ultimate secret',
+    resave: false,
+    saveUninitialized: false,
+    // store: mongoDBstore
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/plaid', plaidRouter);
 app.use('/signup', logRouter);
+app.use('/test', testRouter);
 
 app.post('/twitter', (req, res) => {
   var client = new Twitter({
@@ -42,6 +62,17 @@ app.post('/twitter', (req, res) => {
 
 });
 
+app.get('/auth/twitter',
+  passport.authenticate('twitter', {scope: ['profile']}));
+
+app.get('/auth/twitter/callback', 
+  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/fail' }),
+  function(req, res) {
+    res.redirect('http://localhost:3000/')
+    // Successful authentication, redirect home.
+    // axios.get('/login');
+});
+
 app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
+  console.log(`Server is running on port: ${port}`);
 });
