@@ -22,15 +22,25 @@ export default class Bank extends Component {
   render() {
     const { tellerAccount } = this.state;
     return (
-      <html>
-      <head></head>
-      <body>
-      <button onClick={this.print}>test</button>
-      <button id="teller-connect">Connect to your bank</button>
-      <div className="Bank" ref={el => (this.div = el)}>
+      <div className="container-fluid hero-container">
+        <div className="hero-image">
+        <div className="hero-text">
+            <h1 id="demo">YBudge</h1>
+            <button type="button" class="btn btn-outline-light" id="teller-connect">Connect to your bank through Teller</button>
+            <div className="Bank" ref={el => (this.div = el)} />
+        </div>
+        </div>
       </div>
-      </body>
-      </html>
     );
   }
 }
+
+{/* <html>
+<head></head>
+<body>
+<button onClick={this.print}>test</button>
+<button id="teller-connect">Connect to your bank</button>
+<div className="Bank" ref={el => (this.div = el)}>
+</div>
+</body>
+</html> */}
