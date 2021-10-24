@@ -21,6 +21,7 @@
     "passport": "^0.5.0",
     "passport-twitter": "^1.0.4",
     "twitter": "^1.7.1",
-    "twittr": "0.0.0"
+    "twittr": "0.0.0",
+    "verror": "^1.10.0"
   }
 }

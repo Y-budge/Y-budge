@@ -20,6 +20,7 @@ const TopNav = props => {
         <Link to="#" className="nav-link">Contact</Link>
         <Link to="/login" className="nav-link" to="/login">Login</Link>
         <Link to="/signup" className="nav-link" to="/signup">Signup</Link>
+        <Link to="/bank" className="nav-link" to="/bank">Bank Connect</Link>
       </div>
     </nav>
   );
