@@ -16,8 +16,8 @@ const TopNav = props => {
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarsExample09">
-        <Link to="#" className="nav-link">About</Link>
-        <Link to="#" className="nav-link">Contact</Link>
+        <Link to="/about" className="nav-link">About</Link>
+        <Link to="/contact" className="nav-link">Contact</Link>
         <Link to="/login" className="nav-link" to="/login">Login</Link>
         <Link to="/signup" className="nav-link" to="/signup">Signup</Link>
         <Link to="/bank" className="nav-link" to="/bank">Bank Connect</Link>
