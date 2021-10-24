@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import './signup.css';
 
 export default class Login extends Component {
   constructor(props) {
@@ -62,7 +63,9 @@ export default class Login extends Component {
                       onChange={this.onChangePass}
                     />
                   </div>
-                  <button type="submit" class="btn btn-outline-light" >Login</button>
+                  <div className="spacingWrapper">
+                    <button type="submit" class="btn btn-outline-light" >Login</button>
+                  </div>
                 </form>
             </div>
             </div>
