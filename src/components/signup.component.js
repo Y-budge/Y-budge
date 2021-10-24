@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import cors from 'cors';
 import './signup.css';
+import {Button} from 'react-bootstrap';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -83,10 +84,13 @@ export default class Signup extends Component {
                       onChange={this.onChangePass}
                     />
                   </div>
-                  <div className="spacingWrapper">
+                  {/* <div className="spacingWrapper">
                     <button type="submit" class="btn btn-outline-light" >Signup</button>
-                  </div>
+                  </div> */}
                 </form>
+                <a href="http://localhost:5000/auth/twitter">
+                <Button class="btn btn-outline-light" >Login</Button>
+                </a>
             </div>
             </div>
       </div>
