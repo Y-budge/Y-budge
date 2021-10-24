@@ -10,7 +10,7 @@ export default class Bank extends Component {
     };
     this.print = this.print.bind(this);
   }
-  
+
   print() {
     this.setState({
       tellerAccount: window.tellerAccount
@@ -21,15 +21,24 @@ export default class Bank extends Component {
   render() {
     const { tellerAccount } = this.state;
     return (
-      <html>
-      <head></head>
-      <body>
-      <button onClick={this.print}>test</button>
-      <button id="teller-connect">Connect to your bank</button>
-      <div className="Bank" ref={el => (this.div = el)}>
+      <div className="container-fluid hero-container">
+        <div className="hero-image">
+          <div className="hero-text">
+            <html>
+              <head></head>
+              <body>
+                <div className="row">
+                  <button onClick={this.print}>test</button>
+                  <button type="button" class="btn btn-outline-dark" id="teller-connect">Connect to your bank</button>
+                  <div className="Bank" ref={el => (this.div = el)}>
+                  </div>
+                </div>
+              </body>
+            </html>
+          </div>
+        </div>
       </div>
-      </body>
-      </html>
+
     );
   }
 }
