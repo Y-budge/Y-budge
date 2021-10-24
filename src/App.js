@@ -11,7 +11,7 @@ import Landing from './components/landing.component';
 import Signup from './components/signup.component';
 import Login from './components/login.component';
 import Bank from './components/bank.component';
-import About from './components/about.component';
+
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
       <Route path="/login" component={Signup} />
       <Route path="/twitter" component={Twitter} />
       <Route path="/bank" component={Bank} />
-      <Route path="/about" component={About} />
     </Router>
   );
 }

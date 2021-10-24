@@ -11,18 +11,16 @@ class Twitter extends Component {
     }
 
     onSubmit() {
-       
-
-        axios.post('https://y-budge2.herokuapp.com/twitter') //'http://localhost:5000/twitter')
+     
+        axios.post('http://localhost:5000/twitter')
         .then(res => console.log(res.data))
-
 
     }
 
     render() {
         return(
             <div>
-                This is the twitter page.
+                Twitter message had been sent.
             </div>
         )
     }
