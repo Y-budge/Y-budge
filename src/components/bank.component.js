@@ -16,7 +16,7 @@ export default class Bank extends Component {
     this.setState({
       id: window.tellerAccount.id
     });
-    axios.get('http://localhost:5000/teller/login/' + window.tellerAccount.id)
+    axios.get('https://ybudge.herokuapp.com:5000/teller/login/' + window.tellerAccount.id)
   }
 
   render() {
