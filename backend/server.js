@@ -65,13 +65,11 @@ app.post('/twitter', (req, res) => {
 app.get('/auth/twitter',
   passport.authenticate('twitter', {scope: ['profile']}));
 
-app.get('/auth/twitter/callback', 
-  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/signup'}),
+app.get('/auth/twitter/callback',
+  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/login'}),
   function(req, res) {
     console.log('hi');
     res.redirect('http://localhost:3000');
-    // Successful authentication, redirect home.
-    // axios.get('/login');
 });
 
 app.get('/logout', (req, res) => {

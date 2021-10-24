@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import cors from 'cors';
 import './signup.css';
 
 export default class Signup extends Component {
@@ -29,23 +30,30 @@ export default class Signup extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const account = {
-      username: this.state.username,
-      password: this.state.password
-    }
+    // const account = {
+    //   username: this.state.username,
+    //   password: this.state.password
+    // }
 
-    console.log(account);
-    axios.post('http://localhost:5000/signup/add', {
-      username: account.username,
-      password: account.password
-    })
+    // console.log(account);
+    // axios.post('http://localhost:5000/signup/add', {
+    //   username: account.username,
+    //   password: account.password
+    // })
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+    // window.location = '/';
+    axios.get('http://localhost:5000/auth/twitter')
     .then(function (response) {
       console.log(response);
     })
     .catch(function (error) {
       console.log(error);
     });
-    // window.location = '/';
   }
 
   render() {
@@ -58,7 +66,8 @@ export default class Signup extends Component {
                   <div className="form-group">
                     <label>Username: </label>
                     <input
-                      required
+                      // required
+                      disabled
                       type="text"
                       className="form-control"
                       onChange={this.onChangeUsername}
@@ -67,7 +76,8 @@ export default class Signup extends Component {
                   <div className="form-group">
                     <label>Password: </label>
                     <input
-                      required
+                      // required
+                      disabled
                       type="password"
                       className="form-control"
                       onChange={this.onChangePass}

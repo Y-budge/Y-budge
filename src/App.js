@@ -20,7 +20,7 @@ function App() {
       <Navbar />
       <Route path="/" exact component={Landing} />
       <Route path="/signup" component={Signup} />
-      <Route path="/login" component={Login} />
+      <Route path="/login" component={Signup} />
       <Route path="/twitter" component={Twitter} />
       <Route path="/bank" component={Bank} />
       <Route path="/about" component={About} />
