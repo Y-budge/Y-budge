@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 const passport = require('passport');
-const session = require('express-session');
 const mongoose = require('mongoose');
+const session = require('express-session');
 const axios = require('axios');
+const MongoStore = require('connect-mongo')(session);
 var Twitter = require('twitter');
 
 require('dotenv').config();
@@ -34,7 +35,7 @@ app.use(
     secret: 'the ultimate secret',
     resave: false,
     saveUninitialized: false,
-    // store: mongoDBstore
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
 
@@ -66,12 +67,18 @@ app.get('/auth/twitter',
   passport.authenticate('twitter', {scope: ['profile']}));
 
 app.get('/auth/twitter/callback', 
-  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/fail' }),
+  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/signup'}),
   function(req, res) {
-    res.redirect('http://localhost:3000/')
+    console.log('hi');
+    res.redirect('http://localhost:3000');
     // Successful authentication, redirect home.
     // axios.get('/login');
 });
+
+app.get('/logout', (req, res) => {
+  req.logout()
+  res.redirect('http://localhost:3000/')
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
