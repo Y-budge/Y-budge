@@ -10,16 +10,18 @@ import Twitter from './components/twitter.component';
 import Landing from './components/landing.component';
 import Signup from './components/signup.component';
 import Login from './components/login.component';
+import Bank from './components/bank.component';
 
 function App() {
   return (
     <Router>
-      
+
       <Navbar />
       <Route path="/" exact component={Landing} />
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/twitter" component={Twitter} />
+      <Route path="/bank" component={Bank} />
     </Router>
   );
 }
