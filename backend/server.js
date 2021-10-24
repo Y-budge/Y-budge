@@ -48,14 +48,14 @@ app.use('/test', testRouter);
 
 app.post('/twitter', (req, res) => {
   var client = new Twitter({
-    consumer_key: '3sUMQK8IsHmeK24zgb968UTOf',
-    consumer_secret: 'doJKN1SzcT7jjRRxQFHVmNfLzcqSCempx5rblakdqoJJiEiLbF',
-    access_token_key: '975552453121896448-ZNEZ3Cv0xmYggMwZB5pfLOt6lWUOfNB',
-    access_token_secret: 'sNztcupQlVhPyIakBqhCeI7xptJUS3onXLg4l4b05zP2K',
+    consumer_key: 'yIMDOyDgnswEQmYF9HCK61cnu',
+    consumer_secret: 'SZoiwRLRlOgXy5XSbgoJeOmEGh6BXulxVPGknvGK5KaXAYJKkR',
+    access_token_key: '975552453121896448-AWBBwm5tpVhPZoUiw9i8XmazD640ZEa',
+    access_token_secret: 'M7fuRyLtrYuC6i5gYtacSyimS0nk0qKO8wnE0lob1XU0U',
   })
   
   var params = {screen_name: "litecoin_report"};
-  client.post('statuses/update', {status: 'Calhacktest8'},  function(error, tweet, response) {
+  client.post('statuses/update', {status: 'Tony has exceeded his budget!'},  function(error, tweet, response) {
     if(error) throw error;
     console.log(tweet);  // Tweet body.
     console.log(response);  // Raw response object.
