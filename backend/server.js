@@ -27,6 +27,7 @@ app.use(express.json());
 
 const plaidRouter = require('./routes/plaid');
 const logRouter = require('./routes/log');
+const testRouter = require('./routes/test');
 
 app.use(
   session({
@@ -42,6 +43,7 @@ app.use(passport.session());
 
 app.use('/plaid', plaidRouter);
 app.use('/signup', logRouter);
+app.use('/test', testRouter);
 
 app.post('/twitter', (req, res) => {
   var client = new Twitter({
@@ -64,9 +66,9 @@ app.get('/auth/twitter',
   passport.authenticate('twitter', {scope: ['profile']}));
 
 app.get('/auth/twitter/callback', 
-  passport.authenticate('twitter', { failureRedirect: '/failtwitter' }),
+  passport.authenticate('twitter', { failureRedirect: 'http://localhost:3000/fail' }),
   function(req, res) {
-    res.redirect('/success')
+    res.redirect('http://localhost:3000/')
     // Successful authentication, redirect home.
     // axios.get('/login');
 });
