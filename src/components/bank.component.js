@@ -1,22 +1,24 @@
 import React, { Component } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 
 export default class Bank extends Component {
   constructor(props) {
     super(props);
+
 
     this.state = {
       id: '',
     };
     this.print = this.print.bind(this);
   }
-  
+
   print() {
     this.setState({
       id: window.tellerAccount.id
     });
-    axios.get('http://localhost:5000/teller/login/' + window.tellerAccount.id)
+    //axios.get('http://localhost:5000/teller/login/' + window.tellerAccount.id)
   }
 
   render() {
@@ -26,7 +28,11 @@ export default class Bank extends Component {
         <div className="hero-image">
         <div className="hero-text">
             <h1 id="demo">YBudge</h1>
-            <button type="button" class="btn btn-outline-light" id="teller-connect">Connect to your bank through Teller</button>
+            <a href='http://localhost:8000'>
+            <Button>
+                Link Your Bank Details
+            </Button>
+            </a>
             <div className="Bank" ref={el => (this.div = el)} />
         </div>
         </div>
