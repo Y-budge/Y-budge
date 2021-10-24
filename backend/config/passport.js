@@ -8,7 +8,7 @@ module.exports = async function (passport) {
         consumerKey: process.env.Twitter_API_Key,
         consumerSecret: process.env.Twitter_API_Secret,
         callbackURL: "http://localhost:5000/auth/twitter/callback",
-        userProfileURL: "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true"
+        // userProfileURL: "https://api.twitter.com/1.1/account/verify_credentials.json?include_email=true"
       },
       async (token, tokenSecret, profile, done) => {
         const newUser = {

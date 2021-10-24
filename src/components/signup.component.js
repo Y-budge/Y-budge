@@ -47,7 +47,7 @@ export default class Signup extends Component {
     //   console.log(error);
     // });
     // window.location = '/';
-    axios.get('https://ybudge.herokuapp.com:5000/auth/twitter')
+    axios.get('http://localhost:5000/auth/twitter')
     .then(function (response) {
       console.log(response);
     })
