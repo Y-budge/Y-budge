@@ -16,12 +16,7 @@ export default class Bank extends Component {
     this.setState({
       id: window.tellerAccount.id
     });
-
-    // const account = {
-    //   id: this.state.id,
-    // }
     axios.get('http://localhost:5000/teller/login/' + window.tellerAccount.id)
-    // console.log(this.state.id);
   }
 
   render() {

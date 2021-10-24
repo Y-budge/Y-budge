@@ -44,7 +44,6 @@ app.use(passport.session());
 
 app.use('/plaid', plaidRouter);
 app.use('/signup', logRouter);
-app.use('/teller', tellerRouter);
 
 app.post('/twitter', (req, res) => {
   var client = new Twitter({
@@ -79,6 +78,10 @@ app.get('/logout', (req, res) => {
   req.logout()
   res.redirect('http://localhost:3000/')
 })
+
+app.get('/login/:id', function(req, res) {
+    res.redirect('http://localhost:3000/');
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
