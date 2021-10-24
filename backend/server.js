@@ -28,7 +28,7 @@ app.use(express.json());
 
 const plaidRouter = require('./routes/plaid');
 const logRouter = require('./routes/log');
-const testRouter = require('./routes/test');
+const tellerRouter = require('./routes/teller');
 
 app.use(
   session({
@@ -44,7 +44,7 @@ app.use(passport.session());
 
 app.use('/plaid', plaidRouter);
 app.use('/signup', logRouter);
-app.use('/test', testRouter);
+app.use('/teller', tellerRouter);
 
 app.post('/twitter', (req, res) => {
   var client = new Twitter({
