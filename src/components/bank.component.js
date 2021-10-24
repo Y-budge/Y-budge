@@ -1,21 +1,27 @@
 import React, { Component } from 'react';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 export default class Bank extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      tellerAccount: window.tellerAccount,
+      id: '',
     };
     this.print = this.print.bind(this);
   }
   
   print() {
     this.setState({
-      tellerAccount: window.tellerAccount
+      id: window.tellerAccount.id
     });
-    console.log(this.state);
+
+    // const account = {
+    //   id: this.state.id,
+    // }
+    axios.get('http://localhost:5000/teller/login/' + window.tellerAccount.id)
+    // console.log(this.state.id);
   }
 
   render() {

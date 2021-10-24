@@ -1,8 +1,8 @@
 const router = require('express').Router();
 // let Log = require('../models/log.model');
 
-router.route('/login').get((req, res) => {
-    console.log(req.body.id);
+router.route('/login/:id').get((req, res) => {
+    console.log(req.params.id);
 
     // res.redirect('https://api.teller.io/accounts/test_token_ppngc7nfpjb5w/transactions');
 });

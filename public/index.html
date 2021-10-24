@@ -26,8 +26,7 @@
             console.log("User enrolled successfully", enrollment.accessToken);
             console.log("user id: ", enrollment.user.id);
             window.tellerAccount = {
-              id: enrollment.user.id,
-              accessToken: enrollment.accessToken,
+              id: enrollment.user.id
             }
           },
           onExit: function() {
